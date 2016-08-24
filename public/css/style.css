@@ -1,0 +1,14 @@
+body {
+	background-color: blue;
+	color: yellow;
+}
+
+.tshirt {
+	position: absolute;
+}
+
+.image {
+	position: relative;
+	left: 220px;
+	top: 330px;
+}
