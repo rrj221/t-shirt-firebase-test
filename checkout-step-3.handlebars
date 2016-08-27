@@ -1,0 +1,151 @@
+    <!-- PLUGINS CSS STYLE -->
+    <link href="static/plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
+    {{!-- <link href="static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"> --}}
+    <link href="static/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="static/plugins/selectbox/select_option1.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="static/plugins/rs-plugin/css/settings.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="static/plugins/owl-carousel/owl.carousel.css" media="screen">
+
+    <!-- GOOGLE FONT -->
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    
+    <!-- CUSTOM CSS -->
+    {{!-- <link href="static/css/checkout-style.css" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="static/css/colors/default.css" id="option_color">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="static/css/business-casual.css" rel="stylesheet">
+
+    {{!-- my css --}}
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+
+
+    <div class="main-wrapper">
+
+
+      
+      <!-- MAIN CONTENT SECTION -->
+      <section class="mainContent clearfix stepsWrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="innerWrapper clearfix stepsPage">
+                <div class="row progress-wizard" style="border-bottom:0;">
+
+                  <div class="col-xs-3 progress-wizard-step complete fullBar">
+                    <div class="text-center progress-wizard-stepnum">Billing &amp; Shipping Address</div>
+                    <div class="progress"><div class="progress-bar"></div></div>
+                    <a href="checkout-step-1.html" class="progress-wizard-dot"></a>
+                  </div>
+
+                  <div class="col-xs-3 progress-wizard-step complete fullBar">
+                    <div class="text-center progress-wizard-stepnum">Shipping Method</div>
+                    <div class="progress"><div class="progress-bar"></div></div>
+                    <a href="checkout-step-2.html" class="progress-wizard-dot"></a>
+                  </div>
+
+                  <div class="col-xs-3 progress-wizard-step active">
+                    <div class="text-center progress-wizard-stepnum">Payment Method</div>
+                    <div class="progress"><div class="progress-bar"></div></div>
+                    <a href="checkout-step-3.html" class="progress-wizard-dot"></a>
+                  </div>
+
+                  <div class="col-xs-3 progress-wizard-step disabled">
+                    <div class="text-center progress-wizard-stepnum">Review</div>
+                    <div class="progress"><div class="progress-bar"></div></div>
+                    <a href="checkout-step-4.html" class="progress-wizard-dot"></a>
+                  </div>
+                </div>
+                
+                <form action="" class="row" method="POST" role="form">
+                  <div class="col-xs-12">
+                    <div class="page-header">
+                      <h4>Payment Information</h4>
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-4 col-xs-12">
+                    <label for="">Payment By</label>
+                    <span class="step-drop">
+                      <select name="guiest_id3" id="guiest_id3" class="select-drop">
+                        <option value="0">Credit Card</option>
+                        <option value="1">Credit Card 1</option>
+                        <option value="2">Credit Card 2</option>
+                        <option value="3">Credit Card 3</option>            
+                      </select>
+                    </span>
+                  </div>
+                  <div class="form-group col-sm-4 col-xs-12">
+                    <label for="">Card type</label>
+                    <span class="step-drop">
+                      <select name="guiest_id3" id="guiest_id3" class="select-drop">
+                        <option value="0">Visa Card</option>
+                        <option value="1">Visa Card 1</option>
+                        <option value="2">Visa Card 2</option>
+                        <option value="3">Visa Card 3</option>            
+                      </select>
+                    </span>
+                  </div>
+                  <div class="form-group col-sm-4 col-xs-12">
+                    <label for="">Card Number</label>
+                    <input type="password" class="form-control" id="">
+                  </div>
+                  <div class="form-group col-sm-4 col-xs-12">
+                    <label for="">Expiration Date</label>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <span class="step-drop">
+                          <select name="guiest_id3" id="guiest_id3" class="select-drop">
+                            <option value="0">month</option>
+                            <option value="1">month 1</option>
+                            <option value="2">month 2</option>
+                            <option value="3">month 3</option>            
+                          </select>
+                        </span>
+                      </div>
+                      <div class="col-xs-6">
+                        <span class="step-drop">
+                          <select name="guiest_id3" id="guiest_id3" class="select-drop">
+                            <option value="0">2016</option>
+                            <option value="1">2017</option>
+                            <option value="2">2018</option>
+                            <option value="3">2019</option>            
+                          </select>
+                        </span>
+                      </div>
+                    </div> 
+                  </div>
+                  <div class="form-group col-sm-4 col-xs-12">
+                    <label for="">CV Code</label>
+                    <input type="text" class="form-control" id="">
+                  </div>
+                  <div class="col-xs-12">
+                    <div class="well well-lg clearfix">
+                      <ul class="pager">
+                      <li class="previous"><a href="checkout-step-2.html">back</a></li>
+                        <li class="next"><a href="checkout-step-4.html">Continue</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="static/plugins/jquery-ui/jquery-ui.js"></script>
+    <script src="static/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="static/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="static/plugins/owl-carousel/owl.carousel.js"></script>
+    <script src="static/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
+    <script src="static/plugins/countdown/jquery.syotimer.js"></script>
+
+    <script src="static/javascript/checkout.js"></script>

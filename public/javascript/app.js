@@ -1,4 +1,6 @@
 $(document).ready(function () {
+	//this is very bad - I should have this on the server side. 
+	//I put it here because I was having some trouble getting it working that way
 	// Initialize Firebase
 	var config = {
 		apiKey: "AIzaSyA_oyWpCsZ91yjI_YU9fVEu8Tjji17XBko",
@@ -8,7 +10,36 @@ $(document).ready(function () {
 	};
 	firebase.initializeApp(config);
 
-	console.log('yay?');
+	$('.order').hide();
+	var fileChosenRef;
+
+	$('.view').on('click', function () {
+		$('#image').empty();
+		var url = $(this).attr('data-img');
+		var color = $(this).data('color');
+
+		var shirtsImageRef = storageRef.child('shirts');
+		var selectedShirt = shirtsImageRef.child(color+'-shirt.jpg');
+		selectedShirt.getDownloadURL().then(function (colorURL) {
+			var shirtImg = $('<img>', {
+				src: colorURL, 
+				height: 700,
+				width: 500, 
+				position: 'relative', 
+				class: 'tshirt'
+			});
+			shirtImg.appendTo($('#image'));
+		}).then(function () {
+		var img = $('<img>', {
+				src: url,
+				height: 64,
+				width: 64, 
+				class: 'image'
+			});
+			img.appendTo($('#image'));
+		});
+
+	});
 
 	// Create a root reference
 	var storageRef = firebase.storage().ref();
@@ -18,25 +49,15 @@ $(document).ready(function () {
 	// imagesRef now points to 'images'
 
 //////Upload
-	var mountainsRef = storageRef.child('mountains.jpg');
-
-	// var newImagesRef = imagesRef.child('mountains.jpg');
-
-
 	var inputElement = document.getElementById("input");
 	inputElement.addEventListener("change", handleFiles, false);
 	
 	function handleFiles() {
   		var fileList = this.files; /* now you can work with the file list */
-  		console.log(fileList);
   		var file = fileList[0];
-  		console.log(file);
-  		console.log(file.name);
 
   		var formData = new FormData();
-  		console.log(formData);
   		formData.append('File', file);
-  		console.log(formData);
 
   		var currentURL = window.location.origin;
   		console.log(currentURL);
@@ -62,57 +83,86 @@ $(document).ready(function () {
 		// xhr.send(file);
 
 		var newImagesRef = imagesRef.child(file.name);
-		console.log(newImagesRef);
+		fileChosenRef = newImagesRef;
 
   		newImagesRef.put(file).then(function (snapshot) {
-  			console.log('snapshot');
-  			console.log(snapshot);
-  			console.log(snapshot.downloadURL);
-  			var imgURL = snapshot.downloadURL;
-  			$.post('/upload', { imgURL: imgURL }, function (data) {
-  				//this is where i give the server the image URL
-  				//maybe i should attach the .then here
-  			});
-  		}).then(function () {
   			var color = getImageColor();
-  			console.log(color);
-  			var shirtsImageRef = storageRef.child('shirts');
-  			var selectedShirt = shirtsImageRef.child(color+'-shirt.jpg');
-  			selectedShirt.getDownloadURL().then(function (url) {
-  				var shirtImg = $('<img>', {
-  					src: url, 
-  					height: 700,
-  					width: 500, 
-  					position: 'relative', 
-  					class: 'tshirt'
-  				});
-  				shirtImg.appendTo($('#image'));
-  			}).then(function () {
-  				console.log('ok?');
-  				newImagesRef.getDownloadURL().then(function (url) {
-		  			var img = $('<img>', {
-		  				src: url,
-	  					height: 64,
-	  					width: 64, 
-	  					class: 'image'
-		  			});
-		  			console.log('did that work?')
-		  			img.appendTo($('#image'));
-		  			console.log('where am i?');
-  				});
-  			});
+  			var imgURL = snapshot.downloadURL;
+
+  		}).then(function () {
+			shirtToPage();
   		});
 	}
 
+	$('.order').on('click', function() {
+		$(this).hide();
+		var imgURL = $('.image').data('imgurl');
+		var color = $('.tshirt').data('color');
+		var shirtId = $('.color option:selected').data('id');
+		console.log('LOOOOOOK');
+		console.log(shirtId);
+	    $.post('/upload', { 
+			imgURL: imgURL,
+			color: color, 
+			shirtId: shirtId 
+		}).then(function (data) {
+			console.log(data);
+			orderConfirm();
+		});
+	})
+
 	$('.form').on('submit', function () {
-		// console.log('something');
-		// console.log($('.color option:selected').val());
 		return false;
 	});
 
 	function getImageColor() {
-		return $('.color option:selected').val();
+		return $('.color option:selected').data('color');
 	} 
+
+///change color
+	$('#colorSelect').change(function () {
+		$('#image').empty();
+		shirtToPage();
+	});
+
+	function shirtToPage() {
+		var color = getImageColor();
+		console.log(color);
+		var shirtsImageRef = storageRef.child('shirts');
+		var selectedShirt = shirtsImageRef.child(color+'-shirt.jpg');
+		selectedShirt.getDownloadURL().then(function (url) {
+			var shirtImg = $('<img>', {
+				src: url, 
+				height: 700,
+				width: 500, 
+				position: 'relative', 
+				class: 'tshirt', 
+				'data-color': color
+			});
+			shirtImg.appendTo($('#image'));
+		}).then(function () {
+			fileChosenRef.getDownloadURL().then(function (url) {
+				var img = $('<img>', {
+					src: url,
+					height: 64,
+					width: 64, 
+					class: 'image',
+					'data-imgurl': url
+				});
+				img.appendTo($('#image'));
+				$('.order').show();
+			});
+		});	
+	}
+
+
+	function orderConfirm() {
+		$('h1').remove();
+	}
+
+
+
+
 
 
 

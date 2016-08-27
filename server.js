@@ -6,6 +6,7 @@ var path = require('path');
 var app = express();
 var exphbs = require('express-handlebars');
 var firebase = require('firebase');
+var orm = require(__dirname+'/config/orm.js');
 // require('firebase/auth');
 // require('firebase/database');
 
@@ -130,15 +131,25 @@ app.use(passport.session());
 
 // Basic route that sends the user first to the AJAX Page
 app.get('/', function (req, res) {
+	res.render('index.handlebars');
+});
+
+
+app.get('/upload', function (req, res) {
 	// res.sendFile(__dirname+'/public/index.html');
 
 	// this is what i actually need
 	if (req.user) {
 		console.log(req.user)
 		console.log(req.user.username);
-		res.render('upload.handlebars', {name: req.user.username});
+		var user = req.user.username;
+		orm.getPrices(user, function (toHandlebars) {
+			res.render('upload.handlebars', toHandlebars);
+		})
+		
 		// res.render('upload.handlebars');
 	} else {
+		console.log('why am i doing this?');
 		res.redirect('/login');
 	}
 
@@ -151,18 +162,70 @@ app.get('/login', function (req, res) {
 });
 
 app.post('/login', passport.authenticate('local', {
-	successRedirect: '/', 
+	successRedirect: '/upload', 
 	failureRedirect: '/login'
 }));
 
 app.post('/upload', function (req, res) {
 	console.log('i was posted to');
 	console.log(req.body);
-	console.log(req.body.file);
-})
+	// console.log(req.body.file);
+	console.log('user');
+	console.log(req.user);
+	// console.log(req.body.imgURL);
+	orm.addOrder(req.user.id, req.body, function () {
+		res.send('nice job');
 
+		//this didn't work :(
+		// res.redirect('/order-confirm-page');
+	})
+});
 
+app.get('/new-user', function (req, res) {
+	res.render('new-user.handlebars');
+});
 
+app.post('/create-user', function (req, res) {
+	console.log(req.body);
+	console.log('create the new user please');
+	orm.addUser(req.body);
+});
+
+app.get('/order-history', function (req, res) {
+	console.log('hi there');
+	orm.orderHistory(req.user.id, function(toHandlebars) {
+		res.render('order-history.handlebars', toHandlebars);
+	});
+});
+
+// app.get('/order-confirm', {
+// 	successRedirect: '/order-confirm-page',
+// 	failureRedirect: '/upload'
+// });
+
+app.get('/order-confirm-page', function (req, res) {
+	res.render('order-confirm.handlebars');
+});
+
+app.get('/checkout-step-1', function (req, res) {
+	res.render('checkout-step-1.handlebars');
+});
+
+app.get('/checkout-step-2', function (req, res) {
+	res.render('checkout-step-2.handlebars');
+});
+
+app.get('/checkout-step-3', function (req, res) {
+	res.render('checkout-step-3.handlebars');
+});
+
+app.get('/checkout-step-4', function (req, res) {
+	res.render('checkout-step-4.handlebars');
+});
+
+app.get('/checkout-complete', function (req, res) {
+	res.render('checkout-complete.handlebars');
+});
 
 // Starts the server to begin listening
 // =============================================================

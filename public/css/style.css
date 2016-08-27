@@ -12,3 +12,136 @@ body {
 	left: 220px;
 	top: 330px;
 }
+
+.panel-body {
+	color: black;
+}
+
+.login {
+	color: black;
+}
+
+/*.order {
+	visibility: hidden;
+}*/
+
+.progress-wizard .progress-wizard-step .progress-wizard-dot:after, .progress-wizard .progress-wizard-step.disabled .progress-wizard-dot:after {
+  content: ' ';
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.progress-wizard {
+  padding: 0 15px 50px 15px;
+}
+.progress-wizard .progress-wizard-step {
+  padding: 0;
+  position: relative;
+}
+.progress-wizard .progress-wizard-step .progress-wizard-stepnum {
+  color: yellow;
+  margin-bottom: 5px;
+}
+
+
+@media (max-width: 479px) {
+  .progress-wizard .progress-wizard-step .progress-wizard-stepnum {
+    font-size: 10px;
+    height: 55px;
+  }
+}
+@media (min-width: 480px) {
+  .progress-wizard .progress-wizard-step .progress-wizard-stepnum {
+    font-size: 10px;
+    height: 36px;
+  }
+}
+@media (min-width: 768px) {
+  .progress-wizard .progress-wizard-step .progress-wizard-stepnum {
+    font-size: 12px;
+    height: auto;
+  }
+}
+@media (min-width: 992px) {
+  .progress-wizard .progress-wizard-step .progress-wizard-stepnum {
+    font-size: 14px;
+  }
+}
+.progress-wizard .progress-wizard-step .progress-wizard-info {
+  color: #999;
+  font-size: 14px;
+}
+.progress-wizard .progress-wizard-step .progress-wizard-dot {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  display: block;
+  background: #47bac1;
+  left: 50%;
+  margin-top: -15px;
+  margin-left: -15px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+@media (min-width: 480px) {
+  .progress-wizard .progress-wizard-step .progress-wizard-dot {
+    top: 60px;
+  }
+}
+@media (min-width: 768px) {
+  .progress-wizard .progress-wizard-step .progress-wizard-dot {
+    top: 43px;
+  }
+}
+.progress-wizard .progress-wizard-step .progress {
+  position: relative;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  height: 8px;
+  box-shadow: none;
+  margin: 20px 0;
+  background-color: #f0f0f0;
+}
+.progress-wizard .progress-wizard-step .progress .progress-bar {
+  width: 0px;
+  box-shadow: none;
+  background: #47bac1;
+}
+.progress-wizard .progress-wizard-step.complete .progress .progress-bar {
+  width: 100%;
+}
+.progress-wizard .progress-wizard-step.complete:first-child .progress {
+  left: 0;
+  width: 100%;
+}
+.progress-wizard .progress-wizard-step.complete:first-child .progress .progress-bar {
+  width: 50%;
+}
+.progress-wizard .progress-wizard-step.complete:last-child .progress {
+  width: 100%;
+}
+.progress-wizard .progress-wizard-step.complete:last-child .progress .progress-bar {
+  width: 100%;
+}
+.progress-wizard .progress-wizard-step.complete.fullBar .progress .progress-bar {
+  width: 100%;
+}
+.progress-wizard .progress-wizard-step.active .progress .progress-bar {
+  width: 50%;
+}
+.progress-wizard .progress-wizard-step.disabled .progress-wizard-dot {
+  background-color: #f0f0f0;
+}
+
+
+
+

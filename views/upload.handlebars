@@ -1,4 +1,4 @@
-<h1>Images</h1>
+<h1>CREATE A SHIRT</h1>
 
 <h4>You are now logged in, {{name}}!</h4>
 
@@ -7,21 +7,22 @@
 <form class='form'>
 	<div class="form-group color">
     	<label for="exampleSelect1">Choose your color</label>
-	    <select class="form-control" id="exampleSelect1">
-	        <option>black</option>
-	        <option>blue</option>
-	        <option>green</option>
-	        <option>pink</option>
-	        <option>purple</option>
-	        <option>red</option>
-	        <option>yellow</option>
+	    <select class="form-control" id="colorSelect">
+	        {{#each shirts}}
+	        	<option data-color={{this.dataValues.color}}
+	        			data-price={{this.dataValues.price}}
+	        			data-id={{this.dataValues.id}}>
+	        			{{this.dataValues.color}}   ${{this.dataValues.price}}.00
+	        	</option>
+	        {{/each}}
         </select>
   	</div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+  	<input type="file" id="input">
+    <button type="submit" class="btn btn-success order">Order</button>
 </form>
 
 
 
-<input type="file" id="input">
+
 
 <div id='image'></div>

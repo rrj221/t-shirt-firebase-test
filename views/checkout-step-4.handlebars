@@ -1,0 +1,166 @@
+    <!-- PLUGINS CSS STYLE -->
+    <link href="static/plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
+    {{!-- <link href="static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"> --}}
+    <link href="static/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="static/plugins/selectbox/select_option1.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="static/plugins/rs-plugin/css/settings.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="static/plugins/owl-carousel/owl.carousel.css" media="screen">
+
+    <!-- GOOGLE FONT -->
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    
+    <!-- CUSTOM CSS -->
+    {{!-- <link href="static/css/checkout-style.css" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="static/css/colors/default.css" id="option_color">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="static/css/business-casual.css" rel="stylesheet">
+
+    {{!-- my css --}}
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+
+
+    <div class="main-wrapper">
+      
+      <!-- MAIN CONTENT SECTION -->
+      <section class="mainContent clearfix stepsWrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="innerWrapper clearfix stepsPage">
+                <div class="row progress-wizard" style="border-bottom:0;">
+
+                  <div class="col-xs-4 progress-wizard-step complete fullBar">
+                    <div class="text-center progress-wizard-stepnum">Billing &amp; Shipping Address</div>
+                    <div class="progress"><div class="progress-bar"></div></div>
+                    <a href="/checkout-step-1" class="progress-wizard-dot"></a>
+                  </div>
+
+                  <div class="col-xs-4 progress-wizard-step complete fullBar">
+                    <div class="text-center progress-wizard-stepnum">Payment Method</div>
+                    <div class="progress"><div class="progress-bar"></div></div>
+                    <a href="/checkout-step-3" class="progress-wizard-dot"></a>
+                  </div>
+
+                  <div class="col-xs-4 progress-wizard-step complete">
+                    <div class="text-center progress-wizard-stepnum">Review</div>
+                    <div class="progress"><div class="progress-bar"></div></div>
+                    <a href="/checkout-step-4" class="progress-wizard-dot"></a>
+                  </div>
+                </div>
+                
+                <form action="" class="row" method="POST" role="form">
+                  <div class="col-xs-12">
+                    <div class="page-header">
+                      <h4>order review</h4>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-xs-12">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">Billing Address</h4>
+                      </div>
+                      <div class="panel-body">
+                        <address>
+                          <strong>Adam Smith</strong><br>
+                          9/4 C Babor Road, Mohammad pur, <br>
+                          Shyamoli, Dhaka <br>
+                          Bangladesh
+                        </address>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-xs-12">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">Shipping Address</h4>
+                      </div>
+                      <div class="panel-body">
+                        <address>
+                          <strong>Adam Smith</strong><br>
+                          9/4 C Babor Road, Mohammad pur, <br>
+                          Shyamoli, Dhaka <br>
+                          Bangladesh
+                        </address>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-xs-12">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">Payment Method</h4>
+                      </div>
+                      <div class="panel-body">
+                        <address>
+                          <span>Credit Card - VISA</span>
+                        </address>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-xs-12">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">Shipping Method</h4>
+                      </div>
+                      <div class="panel-body">
+                        <address>
+                          <span>Post Air Mail</span>
+                        </address>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">Order Details</h4>
+                      </div>
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="col-sm-4 col-xs-12">
+                            <address>
+                              <a href="#">Email: adamsmith@bigbag.com</a> <br>
+                              <span>Phone: +884 5452 6432</span>
+                            </address>
+                          </div>
+                          <div class="col-sm-8 col-xs-12">
+                            <address>
+                              <span>Additional Information: </span><br>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
+                            </address>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-12">
+                    <div class="well well-lg clearfix">
+                      <ul class="pager">
+                      <li class="previous"><a href="/checkout-step-3">Back</a></li>
+                        <li class="next"><a href="/checkout-complete">Confirm</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="static/plugins/jquery-ui/jquery-ui.js"></script>
+    <script src="static/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="static/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="static/plugins/owl-carousel/owl.carousel.js"></script>
+    <script src="static/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
+    <script src="static/plugins/countdown/jquery.syotimer.js"></script>
+
+    <script src="static/javascript/checkout.js"></script>
+

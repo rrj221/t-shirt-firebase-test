@@ -1,0 +1,50 @@
+<div>
+
+<h3> 
+{{user.dataValues.User.dataValues.firstName}} {{user.dataValues.User.dataValues.lastName}}'s Orders
+</h3>
+
+<h4>Click on an order to see it</h4>
+
+
+<div class='container'>
+	<div class='col-md-6'>
+		<table class="table table-inverse">
+		  <thead>
+		    <tr>
+		      <th></th>
+		      <th>Ordered On</th>
+		      <th>Color</th>
+		      <th>Price</th>
+		    </tr>
+		  </thead>
+		  {{#each data}}
+			  <tbody>
+			    <tr class='orderRow'>
+			      <th scope="row">
+			      	<div class='btn btn-success view' 
+			      		data-img={{this.dataValues.imgURL}} 
+			      		data-color={{this.dataValues.color}}>
+			      		view
+			      	</div>
+			      </th>
+			      <td>{{this.dataValues.createdAt}}</td>
+			      <td>{{this.dataValues.color}}</td>
+			      <td>${{this.dataValues.Shirt.dataValues.price}}.00</td>
+			    </tr>
+			  </tbody>
+		  {{/each}}
+		</table>
+	</div>
+
+	<div class='col-md-6'>
+		<div id='image'>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+</div>
